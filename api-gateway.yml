@@ -10,6 +10,13 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: '*'
+            exposedHeaders: '*'
       routes:
         - id: authentication-service
           uri: http://localhost:8082/
@@ -47,10 +54,10 @@ spring:
             - Path=/slot-handling/**
           filters:
             - RewritePath=/slot-handling(?<segment>/?.*), $\{segment}
-        - id: ticker-handling-service
+        - id: ticket-handling-service
           uri: http://localhost:8092/
           predicates:
-            - Path=/ticket-handling-service/**
+            - Path=/ticker-handling-service/**
           filters:
             - RewritePath=/ticket-handling-service(?<segment>/?.*), $\{segment}
         - id: user-service
@@ -59,3 +66,10 @@ spring:
             - Path=/user-service/**
           filters:
             - RewritePath=/user-service(?<segment>/?.*), $\{segment}
+
+
+
+
+
+
+
