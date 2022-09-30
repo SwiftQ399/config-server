@@ -71,4 +71,23 @@ spring:
           predicates:
             - Path=/**
           filters:
-            - RewritePath=/product-webapp(?<segment>/?.*), $\{segment}
+            - RewritePath=(?<segment>/?.*), $\{segment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
