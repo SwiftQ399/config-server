@@ -66,10 +66,9 @@ spring:
             - Path=/user-service/**
           filters:
             - RewritePath=/user-service(?<segment>/?.*), $\{segment}
-
-
-
-
-
-
-
+        - id: product-webapp
+          uri: http://localhost:3000/
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=/product-webapp(?<segment>/?.*), $\{segment}
